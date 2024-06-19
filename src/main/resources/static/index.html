@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Download eBook</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="container">
+    <h1 style="color:white">Digite seu e-mail na caixa de texto</h1>
+    <br>
+
+    <form action="/enviar-email" method="post" id="downloadForm" onsubmit="return validateAndSubmitForm(event)">
+        <input id="emailInput" type="email" name="email" placeholder="Digite seu email" required>
+        <br>
+        <button id="downloadButton" type="submit" style="color:black">BAIXAR EBOOK</button>
+    </form>
+</div>
+
+<script>
+    function validateAndSubmitForm(event) {
+        event.preventDefault();
+
+        var email = document.getElementById('emailInput').value;
+        if (email.trim() === "") {
+            alert("Por favor, preencha seu email para baixar o eBook.");
+            return false;
+        }
+
+        var formData = new FormData();
+        formData.append("email", email);
+
+        fetch('/enviar-email', {
+            method: 'POST',
+            body: formData
+        })
+            .then(() => {
+                console.log("Email enviado com sucesso.");
+                downloadArquivo();
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert("Erro ao enviar e-mail. Por favor, tente novamente.");
+            });
+
+        return false;
+    }
+
+    function downloadArquivo() {
+        // URL do arquivo que você deseja baixar
+        var url = ' ';
+        var link = document.createElement('a');
+        link.href = url;
+        link.download = 'ebook.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+</script>
+</body>
+</html>
