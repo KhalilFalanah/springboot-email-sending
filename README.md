@@ -27,6 +27,7 @@ spring.mail.password=your app password
 # Propriedades adicionais
 spring.mail.properties.mail.smtp.auth=true
 spring.mail.properties.mail.smtp.starttls.enable=true
+```
 
 ### Passos para Configuração
 
