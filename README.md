@@ -87,8 +87,3 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e enviar 
 
 Este projeto é licenciado sob os termos da [MIT License](LICENSE).
 
----
-
-Sinta-se à vontade para personalizar este README de acordo com as necessidades específicas do seu projeto. Boa codificação!
-
-
