@@ -71,7 +71,7 @@ spring.mail.properties.mail.smtp.starttls.enable=true
 
 ## Requisitos
 
-- Java 11 ou superior
+- Java 17 ou superior
 - Maven 3.6 ou superior
 
 ## Dependências
